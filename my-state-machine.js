@@ -1,13 +1,14 @@
+
+/* стек машин*/
+const StateMachinenStack = [];
+
 /* хочу более красиво дёргать вершину стека */
-Object.defineProperty(Array.prototype, 'last', {
+Object.defineProperty(StateMachinenStack, 'last', {
     enumerable: false,
     value: function () {
         return this[this.length - 1];
     }
 });
-
-/* собственно, стек */
-const StateMachinenStack = [];
 
 /* описание машины */
 const StateMachine = function (params) {
@@ -42,9 +43,6 @@ const StateMachine = function (params) {
                 for (let key in action) {
                     this.tryToRunAction(action[key], eventData);
                 }
-                break;
-            default:
-                /* как - то нужно обрабатывать, если пришла неведомая фигня? */
                 break;
         }
     };
